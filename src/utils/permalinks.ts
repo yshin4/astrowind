@@ -39,35 +39,6 @@ export const getCanonical = (path = ''): string | URL => {
 };
 
 /** */
-// export const getPermalink = (slug = '', type = 'project'): string => {
-//   let permalink: string;
-//   return type;
-
-//   switch (type) {
-//     case 'grnsight':
-//       permalink = 'https://dondi.github.io/GRNsight/';
-//       break;
-
-//     case 'alexa':
-//       permalink = 'https://github.com/yshin4/amazon-alexa';
-//       break;
-
-//     case 'acm':
-//       permalink = 'https://icpc.global/';
-//       break;
-
-//     case 'project':
-//       permalink = getBlogPermalink();
-//       break;
-//     default:
-//       permalink = getBlogPermalink();
-//       break;
-//   }
-
-//   return permalink;
-// };
-
-/** */
 export const getPermalink = (slug = '', type = 'page'): string => {
   let permalink: string;
 
