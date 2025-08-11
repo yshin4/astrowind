@@ -14,7 +14,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
-    "lint:eslint": "eslint ."
+    "lint:eslint": "eslint .",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
@@ -47,6 +48,7 @@
     "eslint": "8.57.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
+    "gh-pages": "^6.3.0",
     "globals": "^15.8.0",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",

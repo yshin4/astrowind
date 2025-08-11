@@ -12,25 +12,26 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Personal Homepage Demo',
+  title: 'Jen Shin - Portfolio',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot="announcement"></Fragment>
+  <!-- <Fragment slot="announcement"></Fragment> -->
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '#' },
+        { text: 'Home', href: '#hero' },
         { text: 'About', href: '#about' },
-        { text: 'Resume', href: '#resume' },
-        { text: 'Porfolio', href: '#porfolio' },
-        { text: 'Blog', href: '#blog' },
-        { text: 'Github', href: 'https://github.com/onwidget' },
+        { text: 'Career', href: '#resume' },
+        { text: 'Experience', href: '#porfolio' },
+        { text: 'Skills', href: '#skills' },
+        { text: 'Projects', href: '#projects' },
+        { text: 'Contact', href: '#contact' },
       ]}
       actions={[
         {
-          text: 'Hire me',
+          text: 'Linked In',
           href: '#',
         },
       ]}
@@ -43,14 +44,13 @@ const metadata = {
 
   <Hero
     id="hero"
-    title="Sarah Johnson"
-    tagline="Personal Web Demo"
-    actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('/contact#form') }]}
+    title="Jen Shin"
+    tagline="⭐✨⭐✨⭐"
+    actions={[{ variant: 'primary', text: 'Let\'s go! 🏃🏻‍♀️💨💨', href: '#about' }]}
+
   >
     <Fragment slot="subtitle">
-      I'm a Graphic Designer passionate about crafting visual stories. <br /> With 5 years of experience and a degree from
-      New York University's School of Design. I infuse vitality into brands and designs, transforming concepts into captivating
-      realities.
+      Welcome to my online portfolio. Let's make your time here worth it!  <br /> 
     </Fragment>
   </Hero>
 
@@ -61,49 +61,45 @@ const metadata = {
     columns={3}
     items={[
       {
-        icon: 'tabler:brand-dribbble',
+        icon: 'tabler:brand-linkedin',
         callToAction: {
           target: '_blank',
-          text: 'Dribbble',
-          href: '#',
+          text: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/jen-shin/',
         },
       },
       {
-        icon: 'tabler:brand-behance',
+        icon: 'tabler:brand-github',
         callToAction: {
           target: '_blank',
-          text: 'Behance',
-          href: '#',
-        },
-      },
-      {
-        icon: 'tabler:brand-pinterest',
-        callToAction: {
-          target: '_blank',
-          text: 'Pinterest',
-          href: '#',
+          text: 'Github',
+          href: 'https://github.com/yshin4',
         },
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Colorful Image',
+      src: '~/assets/images/me_char.png',
+      alt: 'Image of myself as a character',
       loading: 'eager',
+      width:"520",
+      height:"600",
     }}
   >
     <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About Me</h2>
       <p>
-        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-        pixel becomes a brushstroke in the canvas of imagination.
+        I'm a fullstack Software Engineer at Google in the YouTube ShopAds team.
+        With 6 years of work experience and a Computer Science degree, I thrive in a fast paced environment. 
+        I'm comfortable with large scale platforms and high user impact projects. I'm experienced with both frontend and backend work.
+        I enjoy driving the project from start to launch which includes the process of scoping, designing, implementing, testing, debugging, analyzing data, and finally launching the project.
       </p>
       <br />
       <p>
-        I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-        details of typography, or the vibrant hues of nature during my outdoor escapades.
+        On my free time I enjoy playing poker, video games, and reading. I also like to draw, spend numerous hours on Adobe After Effects and Photoshop, and explore new cafes and restaurants. 
+        I'm a huge gamer!
       </p>
       <br />
-      <p>If you're curious to dive deeper into my work, you can follow me:</p>
+      <p>If you'd like to learn more about me, you can follow me on:</p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -119,14 +115,34 @@ const metadata = {
     items={[
       {
         title:
-          'Graphic Designer <br /> <span class="font-normal">ABC Design Studio, New York, NY</span> <br /> <span class="text-sm font-normal">2021 - Present</span>',
-        description: `Collaborate with clients to understand design requirements and objectives. <br /> Develop branding solutions, including logos, color palettes, and brand guidelines. <br /> Design marketing materials such as brochures, posters, and digital assets. <br /> Create visually appealing user interfaces for websites and applications.`,
+          'Software Engineer <br /> <span class="font-normal">Google, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Sep 2018 - Present</span>',
+        description: 
+        `Designed, implemented, analyzed, and successfully launched Shopping Ad features on Shorts driving $2.1B revenue opportunity and $228M 7 day ARR (+120% YoY).
+        Executed video and image ads for Shorts for both Android and iOS as a fullstack developer from design to launch.
+        Specialized and owned Shoppable Ads for Shorts and managed and reviewed design and code.
+        Mentored a new engineer in the team and guided them through multiple Shorts projects.
+        Analyzed experiment and launch metrics, regularly interacting with the database, SQL queries, and logs.`,
         icon: 'tabler:briefcase',
       },
       {
         title:
-          'Junior Graphic Designer <br /> <span class="font-normal">XYZ Creative Agency, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">2018 - 2021</span>',
-        description: `Assisted senior designers in creating design concepts and visual assets. <br /> Contributed to the development of brand identities and marketing collateral. <br /> Collaborated with the marketing team to ensure consistent design across campaigns. <br /> Gained hands-on experience in various design software and tools.`,
+          'Computer Science Technical Assistant <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Jan 2018 - May 2018</span>',
+        description: 
+        `Assisted Computer Science majors and minors with wide variety of coding questions regarding their projects and assignments in the Computer Science lab.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Lab Manager <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Jan 2016 - Dec 2017</span>',
+        description: 
+        `Attentively assisted clients, including both alumni and students, by resolving any complaints or trouble they had regarding the computer lab and various software they were using.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Website Programmer <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Oct 2015 - Dec 2016</span>',
+        description: 
+        `Managed a college class website by uploading information using HTML and CSS and improved code through cleaning up general bugs, errors, and format.`,
         icon: 'tabler:briefcase',
       },
     ]}
@@ -140,97 +156,51 @@ const metadata = {
     title="Education"
     items={[
       {
-        title: `Master of Fine Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>`,
-        icon: 'tabler:school',
-      },
-      {
-        title: `Bachelor of Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2014 - 2018</span>`,
+        title: `Bachelor of Science in Computer Science <br /> <span class="font-normal"> Loyola Marymount University</span> <br /> <span class="text-sm font-normal">2015 - 2018</span>`,
         icon: 'tabler:school',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Skills"
-    subtitle="Discover the proficiencies that allow me to bring imagination to life through design."
-    columns={3}
-    defaultIcon="tabler:point-filled"
-    items={[
-      {
-        title: 'Graphic design',
-        description: 'Proficient in crafting visually appealing designs that convey messages effectively.',
-      },
-      {
-        title: 'Branding and identity',
-        description: 'Skilled at developing cohesive brand identities, including logos and brand guidelines.',
-      },
-      {
-        title: 'User-centered design',
-        description: 'Experienced in creating user-friendly interfaces and optimizing user experiences.',
-      },
-      {
-        title: 'Adobe Creative Suite',
-        description: 'Skilled in using Photoshop, Illustrator, and InDesign to create and edit visual elements.',
-      },
-      {
-        title: 'Typography',
-        description: 'Adept in selecting and manipulating typefaces to enhance design aesthetics.',
-      },
-      {
-        title: 'Color theory',
-        description: 'Proficient in using color to evoke emotions and enhance visual harmony.',
-      },
-      {
-        title: 'Print and digital design',
-        description: 'Knowledgeable in designing for both print materials and digital platforms.',
-      },
-      {
-        title: 'Attention to detail',
-        description: 'Diligent in maintaining precision and quality in all design work.',
-      },
-      {
-        title: 'Adaptability',
-        description: 'Quick to adapt to new design trends, technologies, and client preferences.',
-      },
-    ]}
-  />
-
+  
   <!-- Content Widget **************** -->
 
   <Content
     id="porfolio"
-    title="Elevating visual narratives"
-    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
+    title="Professional Experience"
+    subtitle="This section highlights key products from my profession, demonstrating the skills and expertise I applied in delivering impactful results within my previous roles."
     isReversed
     items={[
       {
-        title: 'Description:',
+        title: 'Project Contributions',
         description:
-          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
+          'Designed, implemented, analyzed, and successfully launched Shopping Ad features on Shorts driving $2.1B revenue opportunity and $228M 7 day ARR (+120% YoY).'
+          + '</br></br> Executed video and image ads for Shorts for both Android and iOS as a fullstack developer from design to launch.'
+          + '</br></br> Analyzed experiment and launch metrics, regularly interacting with the database, SQL queries, and logs.'
+          + '</br></br> Managed up to four projects in parallel, prioritizing projects to deliver target SLOs and achieve key milestones.'
       },
       {
-        title: 'Role:',
+        title: 'Role in the team',
         description:
-          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
+        'Mentored a new engineer in the team and guided them through multiple Shorts projects.'
+          + '</br></br> Specialized and owned Shoppable Ads for Shorts and managed and reviewed design and code.'
+          + '</br></br> Managed up to four projects in parallel, prioritizing projects to deliver target SLOs and achieve key milestones.'
       },
     ]}
+
     image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
+      src: '~/assets/images/shorts_purple_500.png',
+      alt: 'YouTube Shorts logo',
+      width:"535",
+      height:"535",
     }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
-    }}
+    
+
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
+        YouTube Primary Software Engineer <br /><span class="text-2xl">Shopping Ads on Shorts</span>
       </h3>
     </Fragment>
 
@@ -246,29 +216,33 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Description:',
+        title: 'Google Chat & Hangout',
         description:
-          'Designed a captivating event poster for an art and music festival, "ArtWave Fusion," aiming to showcase the synergy between visual art and music genres.',
+          'Collaborated with the Google Drive team to develop Files API to provide an organized files tab in Google Chat room. '
+          + '</br></br> Enhanced the Files tab with additional functionality to dedupe, exclude, and filter files.'
+          + '</br></br> Leveraged flume pipeline to eliminate deadnaming from Google Chat and Google Hangouts.'
+          + '</br></br> Conducted code reviews and provided feedback for entry level engineers',
       },
       {
-        title: 'Role:',
-        description: `Translated the festival's creative theme into a visually striking poster. Used bold typography, vibrant colors, and abstract elements to depict the fusion of art and music. Ensured the design captured the festival's vibrant atmosphere.`,
+        title: 'Google Cloud:',
+        description: `Migrated legacy feature to a new pipeline in Google Cloud ML team with C++.`,
+      },
+      {
+        title: 'Google GSuite Security Center:',
+        description:
+          'Implemented alert filtering for GSuite Security Center utilizing knowledge in database, paging, and frontend tools like Javascript, JQuery, and Wiz. ',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
+      src: '~/assets/images/google2.png',
+      alt: 'Google logo',
+      width:"500",
+      height:"500",
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 2: <br /><span class="text-2xl">Event poster for art & music festival</span>
+        Google Software Engineer <br /><span class="text-2xl">My Previous Teams: </br> Chat, Cloud, GSuite Security Center</span>
       </h3>
     </Fragment>
 
@@ -277,129 +251,70 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+   <!-- Features3 Widget ************** -->
 
-  <Content
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Description:',
-        description: `Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience.`,
-      },
-      {
-        title: 'Role:',
-        description: `Conducted a thorough analysis of the brand's values and customer base to inform the design direction. Created a visually appealing interface with intuitive navigation, highlighting sustainable materials, and integrating a user-friendly shopping experience.`,
-      },
-    ]}
-    image={{
-      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Fashion e-commerce Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 3: <br /><span class="text-2xl">E-commerce website redesign for fashion brand</span>
-      </h3>
-    </Fragment>
+   <Features3
+   id="skills"
+   title="Skills"
+   subtitle=""
+   columns={3}
+   defaultIcon="tabler:point-filled"
+   items={[
+     {
+       title: 'Programming Languages',
+       description: 'Proficient in C++, Java, Python, Javascript, JQuery, SQL, Bigtable, Elements, Wiz, Astro and more.',
+     },
+     {
+       title: 'Large Scale Development',
+       description: 'Skilled at developing high impact products and comfortable with large scale development.',
+     },
+     {
+       title: 'Analyzing Metrics',
+       description: 'Experienced in creating user-friendly interfaces and optimizing user experiences based on data.',
+     },
+     {
+       title: 'Adobe Creative Suite',
+       description: 'Skilled in using After Effects and Photoshop to create and edit visual elements.',
+     },
+     {
+       title: 'Languages',
+       description: 'Fluent in Korean and English, Intermediate in Japanese, Beginner in Spanish and ASL.',
+     },
+     {
+       title: 'Flexible and Fast Learner',
+       description: 'Extremly interested in learning new things and new tools, thrive in fast paced environment.',
+     },
+   ]}
+ />
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Client testimonials"
-    subtitle="Discover what clients have to say about their experiences working with me."
-    testimonials={[
-      {
-        testimonial: `She took our vague concept and turned it into a visual masterpiece that perfectly aligned with our goals. Her attention to detail and ability to translate ideas into compelling visuals exceeded our expectations.`,
-        name: 'Mark Thompson',
-        job: 'Creative director',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Mark Thompson Image',
-        },
-      },
-      {
-        testimonial: `She transformed our brand identity with her creative finesse, capturing our essence in every element. Her dedication and talent truly shine through her work.`,
-        name: 'Emily Martinez',
-        job: 'CEO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
-          alt: 'Emily Martinez Image',
-        },
-      },
-      {
-        testimonial: `She has an uncanny ability to communicate emotions and stories. She crafted a logo for our NGO that not only represents our cause but also evokes empathy. Her professionalism and commitment make her a designer of exceptional caliber.`,
-        name: 'Laura Simmons',
-        job: 'Founder of an NGO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Laura Simmons Image',
-        },
-      },
-      {
-        testimonial: `We entrusted Sarah with revamping our website's user interface, and the results were astounding. Her intuitive design sense enhanced user experience, leading to a significant increase in engagement. She's a designer who truly understands the synergy of aesthetics and functionality.`,
-        name: 'Alex Foster',
-        job: 'Director of web services',
-        image: {
-          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Alex Foster Image',
-        },
-      },
-      {
-        testimonial: `She took our vision and elevated it beyond imagination. Her ability to capture brand essence and translate it into design is nothing short of remarkable. Working with her has been an inspiring journey.`,
-        name: 'Jessica Collins',
-        job: 'Product Manager',
-        image: {
-          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
-          alt: 'Jessica Collins Image',
-        },
-      },
-      {
-        testimonial: `Her ability to transform concepts into captivating visuals is nothing short of extraordinary. She took our event poster idea and turned it into a visual masterpiece that perfectly captured the essence of our festival. Sarah's dedication, creativity, and knack for delivering beyond expectations make her an invaluable asset to any project.`,
-        name: 'Michael Carter',
-        job: 'Event Coordinator',
-        image: {
-          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Michael Carter Image',
-        },
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    title="Let's create together"
-    subtitle="Ready to transform your vision into captivating designs?"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Hire me',
-        href: '/',
-      },
-    ]}
-  />
-
+  
   <!-- BlogLatestPost Widget **************** -->
 
   <BlogLatestPosts
-    id="blog"
-    title="Explore my insightful articles on my blog"
-    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+    id="projects"
+    title="Personal Projects"
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
+
+ 
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="contact"
+    title="Let's talk more!"
+    subtitle="Connect with me on LinkedIn or please feel free to shoot me an email: <b>yeonsooshin0505@gmail.com</b>"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'My LinkedIn',
+        href: 'https://www.linkedin.com/in/jen-shin/',
+      },
+    ]}
+
+    
+  />
+
 </Layout>
