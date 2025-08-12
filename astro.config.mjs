@@ -25,7 +25,8 @@ const whenExternalScripts = (items = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  site: 'https://yshin4.github.io/',
+  site: 'https://yshin4.github.io/astrowind/',
+  base: '/astrowind/',
   output: 'static',
 
   integrations: [
