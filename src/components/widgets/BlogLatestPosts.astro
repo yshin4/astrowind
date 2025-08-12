@@ -8,6 +8,7 @@ import { findLatestPosts } from '~/utils/blog';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Widget } from '~/types';
 import Button from '../ui/Button.astro';
+import ItemGrid from '../ui/ItemGrid.astro';
 
 export interface Props extends Widget {
   title?: string;
@@ -23,7 +24,8 @@ const {
   linkUrl = await Astro.slots.render('permalink'),
   information = await Astro.slots.render('information'),
   count = 3,
-
+  items = [],
+  columns,
   id,
   isDark = false,
   classes = {},
@@ -53,6 +55,21 @@ const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
         )}
 
         {information && <p class="text-muted dark:text-slate-400 lg:text-sm lg:max-w-md" set:html={information} />}
+      </div>
+      <div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6">
+        <ItemGrid
+          items={items}
+          columns={columns}
+          defaultIcon="tabler:check"
+          classes={{
+            container: `gap-y-4 md:gap-y-8`,
+            panel: 'max-w-none',
+            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-purple-400 dark:bg-purple-500 text-gray-50 p-1',
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
       </div>
 
       <Grid posts={posts} />

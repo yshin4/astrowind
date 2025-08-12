@@ -1,201 +1,106 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
+import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Jen Shin - Portfolio',
-  ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- <Fragment slot="announcement"></Fragment> -->
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '#hero' },
+        { text: 'About', href: '#about' },
+        { text: 'Career', href: '#resume' },
+        { text: 'Experience', href: '#porfolio' },
+        { text: 'Skills', href: '#skills' },
+        { text: 'Projects', href: '#projects' },
+        { text: 'Contact', href: '#contact' },
+      ]}
+      actions={[
+        {
+          text: 'Hire Me',
+          href: '#contact',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
 
   <Hero
-    actions={[
-      { text: 'About me', href: '#about' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Jen Shin 
-      <span class="text-accent dark:text-white highlight"> Software Engineer</span>
-    </Fragment>
+    id="hero"
+    title="Jen Shin"
+    tagline="⭐✨⭐✨⭐"
+    actions={[{ variant: 'primary', text: 'Let\'s go! 🏃🏻‍♀️💨💨', href: '#about' }]}
 
+  >
     <Fragment slot="subtitle">
-        Welcome to my online<span class="font-semibold"> portfolio.</span> 
-        Let's make your time here worth it!
+      Welcome to my online portfolio. Let's make your time here worth it!  <br /> 
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="about"
-    tagline="About Me"
-    title="Jen Shin"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
   <!-- Content Widget **************** -->
 
   <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    id="about"
+    columns={3}
     items={[
       {
-        title: 'Built on top of Astro 4.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          target: '_blank',
+          text: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/jen-shin/',
+        },
       },
       {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+        icon: 'tabler:brand-github',
+        callToAction: {
+          target: '_blank',
+          text: 'Github',
+          href: 'https://github.com/yshin4',
+        },
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: '~/assets/images/me_char.png',
+      alt: 'Image of myself as a character',
+      loading: 'eager',
+      width:"520",
+      height:"600",
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About Me</h2>
+      <p>
+        I'm a fullstack Software Engineer at Google in the YouTube ShopAds team.
+        With 6 years of work experience and a Computer Science degree, I thrive in a fast paced environment. 
+        I'm comfortable with large scale platforms and high user impact projects. I'm experienced with both frontend and backend work.
+        I enjoy driving the project from start to launch which includes the process of scoping, designing, implementing, testing, debugging, analyzing data, and finally launching the project.
+      </p>
+      <br />
+      <p>
+        On my free time I enjoy playing poker, video games, and reading. I also like to draw, spend numerous hours on Adobe After Effects and Photoshop, and explore new cafes and restaurants. 
+        I'm a huge gamer!
+      </p>
+      <br />
+      <p>If you'd like to learn more about me, you can follow me on:</p>
     </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -205,183 +110,211 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    id="resume"
+    title="Work experience"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+        title:
+          'Software Engineer <br /> <span class="font-normal">Google, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Sep 2018 - Present</span>',
+        description: 
+        `Designed, implemented, analyzed, and successfully launched Shopping Ad features on Shorts driving $2.1B revenue opportunity and $228M 7 day ARR (+120% YoY).
+        Executed video and image ads for Shorts for both Android and iOS as a fullstack developer from design to launch.
+        Specialized and owned Shoppable Ads for Shorts and managed and reviewed design and code.
+        Mentored a new engineer in the team and guided them through multiple Shorts projects.
+        Analyzed experiment and launch metrics, regularly interacting with the database, SQL queries, and logs.`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+        title:
+          'Computer Science Technical Assistant <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Jan 2018 - May 2018</span>',
+        description: 
+        `Assisted Computer Science majors and minors with wide variety of coding questions regarding their projects and assignments in the Computer Science lab.`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+        title:
+          'Lab Manager <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Jan 2016 - Dec 2017</span>',
+        description: 
+        `Attentively assisted clients, including both alumni and students, by resolving any complaints or trouble they had regarding the computer lab and various software they were using.`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        title:
+          'Website Programmer <br /> <span class="text-base font-normal">LMU, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">Oct 2015 - Dec 2016</span>',
+        description: 
+        `Managed a college class website by uploading information using HTML and CSS and improved code through cleaning up general bugs, errors, and format.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Education"
+    items={[
+      {
+        title: `Bachelor of Science in Computer Science <br /> <span class="font-normal"> Loyola Marymount University</span> <br /> <span class="text-sm font-normal">2015 - 2018</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="porfolio"
+    title="Professional Experience"
+    subtitle="This section highlights key products from my profession, demonstrating the skills and expertise I applied in delivering impactful results within my previous roles."
+    isReversed
+    items={[
+      {
+        title: 'Project Contributions',
+        description:
+          'Designed, implemented, analyzed, and successfully launched Shopping Ad features on Shorts driving $2.1B revenue opportunity and $228M 7 day ARR (+120% YoY).'
+          + '</br></br> Executed video and image ads for Shorts for both Android and iOS as a fullstack developer from design to launch.'
+          + '</br></br> Analyzed experiment and launch metrics, regularly interacting with the database, SQL queries, and logs.'
+          + '</br></br> Managed up to four projects in parallel, prioritizing projects to deliver target SLOs and achieve key milestones.'
+      },
+      {
+        title: 'Role in the team',
+        description:
+        'Mentored a new engineer in the team and guided them through multiple Shorts projects.'
+          + '</br></br> Specialized and owned Shoppable Ads for Shorts and managed and reviewed design and code.'
+          + '</br></br> Managed up to four projects in parallel, prioritizing projects to deliver target SLOs and achieve key milestones.'
+      },
+    ]}
+
+    image={{
+      src: '~/assets/images/shorts_purple_500.png',
+      alt: 'YouTube Shorts logo',
+      width:"535",
+      height:"535",
+    }}
+    
+
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        YouTube Primary Software Engineer <br /><span class="text-2xl">Shopping Ads on Shorts</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Google Chat & Hangout',
+        description:
+          'Collaborated with the Google Drive team to develop Files API to provide an organized files tab in Google Chat room. '
+          + '</br></br> Enhanced the Files tab with additional functionality to dedupe, exclude, and filter files.'
+          + '</br></br> Leveraged flume pipeline to eliminate deadnaming from Google Chat and Google Hangouts.'
+          + '</br></br> Conducted code reviews and provided feedback for entry level engineers',
+      },
+      {
+        title: 'Google Cloud:',
+        description: `Migrated legacy feature to a new pipeline in Google Cloud ML team with C++.`,
+      },
+      {
+        title: 'Google GSuite Security Center:',
+        description:
+          'Implemented alert filtering for GSuite Security Center utilizing knowledge in database, paging, and frontend tools like Javascript, JQuery, and Wiz. ',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: '~/assets/images/google2.png',
+      alt: 'Google logo',
+      width:"500",
+      height:"500",
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Google Software Engineer <br /><span class="text-2xl">My Previous Teams: </br> Chat, Cloud, GSuite Security Center</span>
+      </h3>
+    </Fragment>
 
-  <!-- Features2 Widget ************** -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
+   <!-- Features3 Widget ************** -->
+
+   <Features3
+   id="skills"
+   title="Skills"
+   subtitle=""
+   columns={3}
+   defaultIcon="tabler:point-filled"
+   items={[
+     {
+       title: 'Programming Languages',
+       description: 'Proficient in C++, Java, Python, Javascript, JQuery, SQL, Bigtable, Elements, Wiz, Astro and more.',
+     },
+     {
+       title: 'Large Scale Development',
+       description: 'Skilled at developing high impact products and comfortable with large scale development.',
+     },
+     {
+       title: 'Analyzing Metrics',
+       description: 'Experienced in creating user-friendly interfaces and optimizing user experiences based on data.',
+     },
+     {
+       title: 'Adobe Creative Suite',
+       description: 'Skilled in using After Effects and Photoshop to create and edit visual elements.',
+     },
+     {
+       title: 'Languages',
+       description: 'Fluent in Korean and English, Intermediate in Japanese, Beginner in Spanish and ASL.',
+     },
+     {
+       title: 'Flexible and Fast Learner',
+       description: 'Extremly interested in learning new things and new tools, thrive in fast paced environment.',
+     },
+   ]}
+ />
+
+  
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="projects"
+    title="Personal Projects"
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </BlogLatestPosts>
 
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
+ 
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    id="contact"
+    title="Let's talk more!"
+    subtitle="Connect with me on LinkedIn or please feel free to shoot me an email: <b>yeonsooshin0505@gmail.com</b>"
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'My LinkedIn',
+        href: 'https://www.linkedin.com/in/jen-shin/',
       },
     ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+    
+  />
+
 </Layout>
