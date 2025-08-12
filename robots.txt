@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://jenshin.com/sitemap-index.xml
